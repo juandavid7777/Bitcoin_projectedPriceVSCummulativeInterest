@@ -2,6 +2,7 @@
 Created on Wed Nov 17 09:19:21 2021
 @author: Juan
 """
+#Imports packages
 import pandas as pd
 import numpy as np
 
@@ -18,22 +19,21 @@ from datetime import datetime
 import webcolors
 
 #0 Functions
-
+    #Color function
 def css_to_rgb(color_name, opacity):
     r,g,b = webcolors.name_to_rgb(color_name)
     
     return "rgba(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
 
 
-#1.-----Downloads data
+#1. Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
 df = df.set_index("Date", drop = False)
 
-#2.-----API token definition
+#2. Coin name
 coin_name = "BTC"
-projected_days = 180
 
-#Inputs
+#3. User inputs
 
     #Risk input
 risk_select = strl.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.01)
@@ -48,11 +48,11 @@ date_select = strl.slider(
      format="YYYY-MM-DD")
 strl.write("Date Analysis:", date_select)
 
-# Generates data
-#Data resulting from analysis
+#4.Data analysis
+    #Data resulting from analysis
 B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
 
-#Estimates points
+    #Estimates points
 DSI_select = df.loc[date_select]["DSI"]
 mean_price =  np.exp(B0 + B1*(np.log(DSI_select))**1 + B2*(np.log(DSI_select))**2 + B3*(np.log(DSI_select))**3)
 risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
@@ -61,11 +61,10 @@ z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
 
-#3.-----Plots figures
-#=================================================== BANDS CHART===========================================
+#5.Plots figures
 fig = go.Figure()
 
-#Price candlesticks plots
+    #Price candlesticks plots
 fig.add_trace(go.Candlestick(
     x=df['Date'],
     open=df['open'],
@@ -75,7 +74,7 @@ fig.add_trace(go.Candlestick(
     name = coin_name + ' price'
     ))
 
-#Prices for uncertainity bands
+    #Prices for uncertainity bands
 fig.add_trace(go.Scatter(
     x=df['Date'],
     y=df["trace_3"],
@@ -104,7 +103,6 @@ fig.add_trace(go.Scatter(
     fillcolor=css_to_rgb("salmon", 0.5)  #red
     ))
 
-#Prices regression plot
 fig.add_trace(go.Scatter(
     x=df['Date'],
     y=df["trace_0"],
@@ -155,14 +153,14 @@ fig.add_trace(go.Scatter(
 
 fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="blue")
 
-#Defines figure properties
+    #Defines figure properties
 fig.update_layout(
-    title = coin_name + " uncertainity bands",
+    title = coin_name + " price-risk bands",
     xaxis_title= "Date",
     yaxis_title= coin_name + " price (USD)",
-    legend_title="Uncertainity risk levels",
+    legend_title="Uncertainity price-risk levels",
     
-    plot_bgcolor = "ghostwhite",
+    plot_bgcolor = "aliceblue",
     yaxis_type="log",
     xaxis_rangeslider_visible=False)
 
