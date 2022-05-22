@@ -22,7 +22,7 @@ import webcolors
 def css_to_rgb(color_name, opacity):
     r,g,b = webcolors.name_to_rgb(color_name)
     
-    return "rgb(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
+    return "rgba(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
 
 
 #1.-----Downloads data
