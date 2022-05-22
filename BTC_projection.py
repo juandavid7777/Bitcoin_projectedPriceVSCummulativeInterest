@@ -23,8 +23,8 @@ coin_name = "BTC"
 projected_days = 180
 
 #Inputs
-risk_select = st.slider('Select your the risk level', 0, 1, 0.5)
-st.write("Risk selected: ", risk_select*100, '%')
+risk_select = strl.slider('Select your the risk level', 0, 1, 0.5)
+strl.write("Risk selected: ", risk_select*100, '%')
 
 # Generates data
 #Data resulting from analysis
