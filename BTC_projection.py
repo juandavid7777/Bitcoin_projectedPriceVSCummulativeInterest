@@ -2,12 +2,15 @@
 Created on Wed Nov 17 09:19:21 2021
 @author: Juan
 """
+import pandas as pd
 
 import streamlit as st
+
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import pandas as pd
-#from datetime import datetime
+
+import scipy.stats as st
+from scipy.stats import norm
 
 
 #1.-----Downloads data
