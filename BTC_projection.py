@@ -11,14 +11,14 @@ import pandas as pd
 
 
 #1.-----Downloads data
-df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
+#df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
 
 
 #2.-----API token definition
-coin_name = "BTC"
-projected_days = 180
+#coin_name = "BTC"
+#projected_days = 180
 
-st.write(1234)
+st.write("hello")
 #3.-----Plots figures
 
 #=================================================== BANDS CHART===========================================
