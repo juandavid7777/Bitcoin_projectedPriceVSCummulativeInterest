@@ -160,7 +160,7 @@ fig.update_layout(
     yaxis_title= coin_name + " price (USD)",
     legend_title="Uncertainity price-risk levels",
     
-    plot_bgcolor = "aliceblue",
+    plot_bgcolor = "darkgrey",
     yaxis_type="log",
     xaxis_rangeslider_visible=False)
 
