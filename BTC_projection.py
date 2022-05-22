@@ -70,7 +70,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_3"],
     mode = 'lines',
     name = '99.9%',
-    line = dict(width = 0.5, dash = 'dash', color = "red"),
+    line = dict(width = 0.2, dash = 'dash', color = "red"),
     ))
 
 fig.add_trace(go.Scatter(
@@ -78,7 +78,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_2"],
     mode = 'lines',
     name = '97.8%',
-    line = dict(width = 0.5, dash = 'dash', color = "red"),
+    line = dict(width = 0.2, dash = 'dash', color = "red"),
     fill='tonexty',
     fillcolor= css_to_rgb("tomato", 0.2)  #red
     ))
@@ -88,7 +88,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_1"],
     mode = 'lines',
     name = '84.2%',
-    line = dict(width = 0.5, dash = 'dash', color = "yellow"),\
+    line = dict(width = 0.2, dash = 'dash', color = "yellow"),\
     fill='tonexty',
     fillcolor=css_to_rgb("salmon", 0.2)  #red
     ))
@@ -98,7 +98,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_0"],
     mode = 'lines',
     name = '50.0%',
-    line = dict(width = 1.0, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.2, dash = 'dash', color = "yellow"),
     fill='tonexty',
     fillcolor=css_to_rgb("khaki", 0.2)  #yellow
     ))
@@ -108,7 +108,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_-1"],
     mode = 'lines',
     name = '15.8%',
-    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.2, dash = 'dash', color = "yellow"),
     fill='tonexty',
     fillcolor=css_to_rgb("lemonchiffon", 0.2) #yellow
     ))
@@ -118,7 +118,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_-2"],
     mode = 'lines',
     name = '2.2%',
-    line = dict(width = 0.5, dash = 'dash', color = "green"),
+    line = dict(width = 0.2, dash = 'dash', color = "green"),
     fill='tonexty',
     fillcolor=css_to_rgb("palegreen", 0.2) #green
     ))
@@ -128,7 +128,7 @@ fig.add_trace(go.Scatter(
     y=df["trace_-3"],
     mode = 'lines',
     name = '0.1%',
-    line = dict(width = 0.5, dash = 'dash', color = "green"),
+    line = dict(width = 0.2, dash = 'dash', color = "green"),
     fill='tonexty',
     fillcolor=css_to_rgb("lawngreen", 0.2)  #green
     ))
