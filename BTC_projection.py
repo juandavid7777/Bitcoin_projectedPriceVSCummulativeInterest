@@ -32,20 +32,18 @@ strl.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
 date_select = strl.slider(
-     "When do you start?",
+     "When do you forecast the price?",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
      value = datetime(2022, 5, 5),
      format="YYYY-MM-DD")
 strl.write("Date Analysis:", date_select)
-#date_select = "2022-05-05"
 
 # Generates data
 #Data resulting from analysis
 B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
 
-
-
+#Estimates points
 DSI_select = df.loc[date_select]["DSI"]
 mean_price =  np.exp(B0 + B1*(np.log(DSI_select))**1 + B2*(np.log(DSI_select))**2 + B3*(np.log(DSI_select))**3)
 risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
@@ -153,6 +151,8 @@ fig.add_trace(go.Scatter(
     name = 'Selected risk',
     line = dict(width = 1.5, dash = 'solid', color = "silver"),
     ))
+
+fig.add_vline(x=date_select, line_width=3, line_dash="dash", line_color="green")
 
 #Defines figure properties
 fig.update_layout(
