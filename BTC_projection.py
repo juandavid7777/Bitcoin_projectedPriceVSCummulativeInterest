@@ -15,6 +15,11 @@ from scipy.stats import norm
 
 from datetime import datetime
 
+import webcolors
+
+#r,g,b = webcolors.name_to_rgb('navy')
+#r,g,b
+
 
 #1.-----Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
@@ -90,7 +95,7 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor="tomato",  #red
+    fillcolor= webcolors.name_to_rgb('navy'),  #red
     opacity=0.5
     ))
 
