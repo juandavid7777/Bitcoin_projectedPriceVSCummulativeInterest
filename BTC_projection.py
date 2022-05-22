@@ -164,7 +164,7 @@ fig.update_layout(
     yaxis_type="log",
     xaxis_rangeslider_visible=False)
 
-fig.update_xaxes(showgrid=True, gridwidth=0.1, gridcolor='silver')
-fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='silver')
+fig.update_xaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
+fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 
 strl.plotly_chart(fig)
