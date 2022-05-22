@@ -30,8 +30,8 @@ strl.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
 date_select = "2022-05-05"
-risk_select = strl.slider('Select date for forecast', "2011-01-01", "2025-05-05", "2022-05-05", step = 1)
-strl.write("Risk selected: ", risk_select*100, '%')
+date_select = strl.slider('Select date for forecast', "2011-01-01", "2025-05-05", "2022-05-05", step = 1)
+strl.write("Date selected: ", date_select)
 
 # Generates data
 #Data resulting from analysis
