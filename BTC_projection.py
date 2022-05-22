@@ -36,7 +36,7 @@ date_select = strl.slider(
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
      value = datetime(2022, 5, 5),
-     format="MM/DD/YY")
+     format="YYYY-MM-DD")
 strl.write("Date Analysis:", date_select)
 #date_select = "2022-05-05"
 
