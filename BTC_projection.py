@@ -13,14 +13,26 @@ import pandas as pd
 #1.-----Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
 
-
 #2.-----API token definition
 coin_name = "BTC"
 projected_days = 180
 
-st.write("hello")
-#3.-----Plots figures
+# Generates data
+#Data resulting from analysis
+B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
 
+date_select = "2022-05-05"
+risk_select = 0.65
+
+DSI_select = df.loc[date_select]["DSI"]
+mean_price =  np.exp(B0 + B1*(np.log(DSI_select))**1 + B2*(np.log(DSI_select))**2 + B3*(np.log(DSI_select))**3)
+risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
+
+z_score = norm.ppf(risk_select)
+df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
+
+
+#3.-----Plots figures
 #=================================================== BANDS CHART===========================================
 fig = go.Figure()
 
@@ -30,7 +42,7 @@ fig.add_trace(go.Scatter(
     y=df["close"],
     mode = 'lines',
     name = '',
-    line = dict(width = 0.5, color = "white")
+    line = dict(width = 0.25, color = "white")
     ))
 
 fig.add_trace(go.Candlestick(
@@ -56,9 +68,9 @@ fig.add_trace(go.Scatter(
     y=df["trace_2"],
     mode = 'lines',
     name = '97.8%',
-    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor='rgba(245, 66, 66,0.2)'  #Red
+    fillcolor='rgba(245, 66, 66,0.5)'  #red
     ))
 
 fig.add_trace(go.Scatter(
@@ -66,9 +78,9 @@ fig.add_trace(go.Scatter(
     y=df["trace_1"],
     mode = 'lines',
     name = '84.2%',
-    line = dict(width = 0.5, dash = 'dash', color = "green"),\
+    line = dict(width = 0.5, dash = 'dash', color = "yellow"),\
     fill='tonexty',
-    fillcolor='rgba(245, 230, 66,0.2)'  #yellow
+    fillcolor='rgba(245, 66, 66,0.2)'  #red
     ))
 
 #Prices regression plot
@@ -77,9 +89,9 @@ fig.add_trace(go.Scatter(
     y=df["trace_0"],
     mode = 'lines',
     name = '50.0%',
-    line = dict(width = 1.0, dash = 'dash', color = "grey"),
+    line = dict(width = 1.0, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor='rgba(0, 199, 56,0.2)'  #green
+    fillcolor='rgba(245, 230, 66,0.5)'  #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -87,9 +99,9 @@ fig.add_trace(go.Scatter(
     y=df["trace_-1"],
     mode = 'lines',
     name = '15.8%',
-    line = dict(width = 0.5, dash = 'dash', color = "green"),
+    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor='rgba(0, 199, 56,0.2)'  #green
+    fillcolor='rgba(245, 230, 66,0.2)'  #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -97,9 +109,9 @@ fig.add_trace(go.Scatter(
     y=df["trace_-2"],
     mode = 'lines',
     name = '2.2%',
-    line = dict(width = 0.5, dash = 'dash', color = "yellow"),
+    line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor='rgba(245, 230, 66,0.2)'  #Yellow
+    fillcolor='rgba(0, 199, 56,0.2)'  #green
     ))
 
 fig.add_trace(go.Scatter(
@@ -107,9 +119,17 @@ fig.add_trace(go.Scatter(
     y=df["trace_-3"],
     mode = 'lines',
     name = '0.1%',
-    line = dict(width = 0.5, dash = 'dash', color = "red"),
+    line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor='rgba(245, 66, 66,0.2)'  #Red
+    fillcolor='rgba(0, 199, 56,0.5)'  #green
+    ))
+
+fig.add_trace(go.Scatter(
+    x=df['Date'],
+    y=df["line"],
+    mode = 'lines',
+    name = 'Selected risk',
+    line = dict(width = 1.5, dash = 'solid', color = "silver"),
     ))
 
 #Defines figure properties
