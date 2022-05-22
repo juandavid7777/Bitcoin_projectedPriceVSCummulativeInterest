@@ -17,8 +17,12 @@ from datetime import datetime
 
 import webcolors
 
-#r,g,b = webcolors.name_to_rgb('navy')
-#r,g,b
+#0 Functions
+
+def css_to_rgb(color_name, opacity):
+    r,g,b = webcolors.name_to_rgb(color_name)
+    
+    return "rgb(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
 
 
 #1.-----Downloads data
@@ -95,8 +99,8 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor= webcolors.name_to_rgb('navy'),  #red
-    opacity=0.5
+    fillcolor= css_to_rgb("tomato", 0.5),  #red
+    
     ))
 
 fig.add_trace(go.Scatter(
