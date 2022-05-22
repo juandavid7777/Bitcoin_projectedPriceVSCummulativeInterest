@@ -99,8 +99,7 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor= css_to_rgb("tomato", 0.1),  #red
-    
+    fillcolor= css_to_rgb("tomato", 0.5)  #red
     ))
 
 fig.add_trace(go.Scatter(
@@ -110,8 +109,7 @@ fig.add_trace(go.Scatter(
     name = '84.2%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),\
     fill='tonexty',
-    fillcolor="salmon",  #red
-    opacity=0.5
+    fillcolor=css_to_rgb("salmon", 0.5)  #red
     ))
 
 #Prices regression plot
@@ -122,7 +120,7 @@ fig.add_trace(go.Scatter(
     name = '50.0%',
     line = dict(width = 1.0, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor="khaki"  #yellow
+    fillcolor=css_to_rgb("khaki", 0.5)  #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -132,7 +130,7 @@ fig.add_trace(go.Scatter(
     name = '15.8%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor="lemonchiffon" #yellow
+    fillcolor=css_to_rgb("lemonchiffon", 0.5) #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -142,7 +140,7 @@ fig.add_trace(go.Scatter(
     name = '2.2%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor="palegreen"  #green
+    fillcolor=css_to_rgb("palegreen", 0.5) #green
     ))
 
 fig.add_trace(go.Scatter(
@@ -152,7 +150,7 @@ fig.add_trace(go.Scatter(
     name = '0.1%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor="lawngreen"  #green
+    fillcolor=css_to_rgb("lawngreen", 0.5)  #green
     ))
 
 fig.add_trace(go.Scatter(
