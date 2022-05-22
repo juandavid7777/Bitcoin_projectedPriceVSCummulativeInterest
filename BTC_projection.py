@@ -13,6 +13,8 @@ from plotly.subplots import make_subplots
 import scipy.stats as st
 from scipy.stats import norm
 
+from datetime import datetime
+
 
 #1.-----Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
@@ -29,9 +31,14 @@ risk_select = strl.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.
 strl.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
-date_select = strl.slider('Select date for forecast', "2011-01-01", "2025-05-05", "2022-05-05")
-strl.write("Date selected: ", date_select)
-date_select = "2022-05-05"
+date_select = st.slider(
+     "When do you start?",
+     min_value = datetime(2011, 1, 1),
+     max_value = datetime(2025, 5, 5),
+     value = datetime(2022, 5, 5),
+     format="MM/DD/YY")
+st.write("Date Analysis:", date_select)
+#date_select = "2022-05-05"
 
 # Generates data
 #Data resulting from analysis
