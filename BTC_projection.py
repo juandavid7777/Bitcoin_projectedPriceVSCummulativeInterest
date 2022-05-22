@@ -18,7 +18,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projec
 coin_name = "BTC"
 projected_days = 180
 
-
+st.write(1234)
 #3.-----Plots figures
 
 #=================================================== BANDS CHART===========================================
