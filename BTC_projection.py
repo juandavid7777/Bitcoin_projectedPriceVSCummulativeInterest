@@ -99,7 +99,7 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor= css_to_rgb("tomato", 0.5),  #red
+    fillcolor= css_to_rgb("tomato", 0.1),  #red
     
     ))
 
