@@ -15,6 +15,7 @@ from scipy.stats import norm
 
 #1.-----Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
+df = df.set_index("Date", drop = False)
 
 #2.-----API token definition
 coin_name = "BTC"
