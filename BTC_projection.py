@@ -152,7 +152,7 @@ fig.add_trace(go.Scatter(
     line = dict(width = 1.5, dash = 'solid', color = "blue"),
     ))
 
-fig.add_vline(x=date_select, line_width=1, line_dash="dash", line_color="black")
+fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="black")
 
 #Defines figure properties
 fig.update_layout(
