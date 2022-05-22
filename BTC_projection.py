@@ -5,7 +5,7 @@ Created on Wed Nov 17 09:19:21 2021
 import pandas as pd
 import numpy as np
 
-import streamlit as st
+import streamlit as strl
 
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -151,4 +151,4 @@ fig.update_layout(
 fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='grey')
 
-st.plotly_chart(fig)
+strl.plotly_chart(fig)
