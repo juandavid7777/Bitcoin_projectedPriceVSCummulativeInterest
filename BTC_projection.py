@@ -22,12 +22,16 @@ df = df.set_index("Date", drop = False)
 coin_name = "BTC"
 projected_days = 180
 
+#Inputs
+risk_select = st.slider('Select your the risk level', 0, 1, 0.5)
+st.write("Risk selected: ", risk_select*100, '%')
+
 # Generates data
 #Data resulting from analysis
 B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
 
 date_select = "2022-05-05"
-risk_select = 0.65
+#risk_select = 0.65
 
 DSI_select = df.loc[date_select]["DSI"]
 mean_price =  np.exp(B0 + B1*(np.log(DSI_select))**1 + B2*(np.log(DSI_select))**2 + B3*(np.log(DSI_select))**3)
