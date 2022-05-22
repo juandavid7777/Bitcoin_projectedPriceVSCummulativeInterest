@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 #1.-----Downloads data
-df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/BTC_risk_metric/891a1032cb63160763c33f235a4714f2083c9713/BTC_price_projections.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv")
 
 
 #2.-----API token definition
@@ -45,7 +45,7 @@ fig.add_trace(go.Candlestick(
 #Prices for uncertainity bands
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["plus_3STDV"],
+    y=df["trace_3"],
     mode = 'lines',
     name = '99.9%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
@@ -53,7 +53,7 @@ fig.add_trace(go.Scatter(
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["plus_2STDV"],
+    y=df["trace_2"],
     mode = 'lines',
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
@@ -63,7 +63,7 @@ fig.add_trace(go.Scatter(
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["plus_1STDV"],
+    y=df["trace_1"],
     mode = 'lines',
     name = '84.2%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),\
@@ -74,7 +74,7 @@ fig.add_trace(go.Scatter(
 #Prices regression plot
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["price_reg"],
+    y=df["trace_0"],
     mode = 'lines',
     name = '50.0%',
     line = dict(width = 1.0, dash = 'dash', color = "grey"),
@@ -84,7 +84,7 @@ fig.add_trace(go.Scatter(
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["minus_1STDV"],
+    y=df["trace_-1"],
     mode = 'lines',
     name = '15.8%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),
@@ -94,7 +94,7 @@ fig.add_trace(go.Scatter(
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["minus_2STDV"],
+    y=df["trace_-2"],
     mode = 'lines',
     name = '2.2%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
@@ -104,42 +104,12 @@ fig.add_trace(go.Scatter(
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
-    y=df["minus_3STDV"],
+    y=df["trace_-3"],
     mode = 'lines',
     name = '0.1%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
     fillcolor='rgba(245, 66, 66,0.2)'  #Red
-    ))
-
-#Peaks
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["peak_price_plus_STDV"],
-    mode = 'lines',
-    name = 'Peak upper bound',
-    line = dict(width = 0.5, dash = 'solid', color = "orange"),
-    showlegend=False
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["peak_price_minus_STDV"],
-    mode = 'lines',
-    name = 'Peak lower bound',
-    line = dict(width = 0.5, dash = 'solid', color = "orange"),
-    fill='tonexty',
-    fillcolor='rgba(245, 182, 66,0.5)',  #Red
-    showlegend=False
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["peak_price"],
-    mode = 'lines',
-    name = 'Peak prediction',
-    line = dict(width = 0.8, dash = 'dot', color = "orange"),
-    showlegend=True
     ))
 
 #Defines figure properties
