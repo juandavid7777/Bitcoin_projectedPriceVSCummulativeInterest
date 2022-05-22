@@ -90,7 +90,8 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor="tomato"  #red
+    fillcolor="tomato",  #red
+    opacity=0.5
     ))
 
 fig.add_trace(go.Scatter(
@@ -100,7 +101,8 @@ fig.add_trace(go.Scatter(
     name = '84.2%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),\
     fill='tonexty',
-    fillcolor="salmon"  #red
+    fillcolor="salmon",  #red
+    opacity=0.5
     ))
 
 #Prices regression plot
@@ -152,7 +154,7 @@ fig.add_trace(go.Scatter(
     line = dict(width = 1.5, dash = 'solid', color = "blue"),
     ))
 
-fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="black")
+fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="blue")
 
 #Defines figure properties
 fig.update_layout(
