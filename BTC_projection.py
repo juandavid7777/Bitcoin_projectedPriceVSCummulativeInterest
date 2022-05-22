@@ -64,16 +64,6 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 #5.Plots figures
 fig = go.Figure()
 
-    #Price candlesticks plots
-fig.add_trace(go.Candlestick(
-    x=df['Date'],
-    open=df['open'],
-    high=df['high'],
-    low=df['low'],
-    close=df['close'],
-    name = coin_name + ' price'
-    ))
-
     #Prices for uncertainity bands
 fig.add_trace(go.Scatter(
     x=df['Date'],
@@ -152,6 +142,16 @@ fig.add_trace(go.Scatter(
     ))
 
 fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="blue")
+
+    #Price candlesticks plots
+fig.add_trace(go.Candlestick(
+    x=df['Date'],
+    open=df['open'],
+    high=df['high'],
+    low=df['low'],
+    close=df['close'],
+    name = coin_name + ' price'
+    ))
 
     #Defines figure properties
 fig.update_layout(
