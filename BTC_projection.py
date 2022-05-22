@@ -66,14 +66,6 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 fig = go.Figure()
 
 #Price candlesticks plots
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["close"],
-    mode = 'lines',
-    name = '',
-    line = dict(width = 0.25, color = "white")
-    ))
-
 fig.add_trace(go.Candlestick(
     x=df['Date'],
     open=df['open'],
@@ -157,7 +149,7 @@ fig.add_trace(go.Scatter(
     x=df['Date'],
     y=df["line"],
     mode = 'lines',
-    name = 'Selected risk',
+    name = "Selected risk: " + str(risk_select*100) + "%",
     line = dict(width = 1.5, dash = 'solid', color = "blue"),
     ))
 
