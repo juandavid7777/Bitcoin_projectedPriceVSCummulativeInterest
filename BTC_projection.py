@@ -31,7 +31,7 @@ risk_select = strl.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.
 strl.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
-date_select = st.slider(
+date_select = strl.slider(
      "When do you start?",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
