@@ -90,7 +90,7 @@ fig.add_trace(go.Scatter(
     name = '97.8%',
     line = dict(width = 0.5, dash = 'dash', color = "red"),
     fill='tonexty',
-    fillcolor='rgba(245, 66, 66,0.5)'  #red
+    fillcolor="tomato"  #red
     ))
 
 fig.add_trace(go.Scatter(
@@ -100,7 +100,7 @@ fig.add_trace(go.Scatter(
     name = '84.2%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),\
     fill='tonexty',
-    fillcolor='rgba(245, 66, 66,0.2)'  #red
+    fillcolor="salmon"  #red
     ))
 
 #Prices regression plot
@@ -111,7 +111,7 @@ fig.add_trace(go.Scatter(
     name = '50.0%',
     line = dict(width = 1.0, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor='rgba(245, 230, 66,0.5)'  #yellow
+    fillcolor="khaki"  #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -121,7 +121,7 @@ fig.add_trace(go.Scatter(
     name = '15.8%',
     line = dict(width = 0.5, dash = 'dash', color = "yellow"),
     fill='tonexty',
-    fillcolor='rgba(245, 230, 66,0.2)'  #yellow
+    fillcolor="lemonchiffon" #yellow
     ))
 
 fig.add_trace(go.Scatter(
@@ -131,7 +131,7 @@ fig.add_trace(go.Scatter(
     name = '2.2%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor='rgba(0, 199, 56,0.2)'  #green
+    fillcolor="palegreen"  #green
     ))
 
 fig.add_trace(go.Scatter(
@@ -141,7 +141,7 @@ fig.add_trace(go.Scatter(
     name = '0.1%',
     line = dict(width = 0.5, dash = 'dash', color = "green"),
     fill='tonexty',
-    fillcolor='rgba(0, 199, 56,0.5)'  #green
+    fillcolor="lawngreen"  #green
     ))
 
 fig.add_trace(go.Scatter(
@@ -149,10 +149,10 @@ fig.add_trace(go.Scatter(
     y=df["line"],
     mode = 'lines',
     name = 'Selected risk',
-    line = dict(width = 1.5, dash = 'solid', color = "silver"),
+    line = dict(width = 1.5, dash = 'solid', color = "blue"),
     ))
 
-fig.add_vline(x=date_select, line_width=1, line_dash="dash", line_color="silver")
+fig.add_vline(x=date_select, line_width=1, line_dash="dash", line_color="black")
 
 #Defines figure properties
 fig.update_layout(
