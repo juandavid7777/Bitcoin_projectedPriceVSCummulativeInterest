@@ -3,6 +3,7 @@ Created on Wed Nov 17 09:19:21 2021
 @author: Juan
 """
 import pandas as pd
+import numpy as np
 
 import streamlit as st
 
