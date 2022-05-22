@@ -152,7 +152,7 @@ fig.add_trace(go.Scatter(
     line = dict(width = 1.5, dash = 'solid', color = "silver"),
     ))
 
-fig.add_vline(x=date_select, line_width=3, line_dash="dash", line_color="green")
+fig.add_vline(x=date_select, line_width=1, line_dash="dash", line_color="silver")
 
 #Defines figure properties
 fig.update_layout(
@@ -161,7 +161,7 @@ fig.update_layout(
     yaxis_title= coin_name + " price (USD)",
     legend_title="Uncertainity risk levels",
     
-    plot_bgcolor = "black",
+    plot_bgcolor = "ghostwhite",
     yaxis_type="log",
     xaxis_rangeslider_visible=False)
 
