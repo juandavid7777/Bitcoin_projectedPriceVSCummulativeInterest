@@ -141,10 +141,10 @@ fig.add_trace(go.Scatter(
     y=df["line"],
     mode = 'lines',
     name = "Selected risk: " + str(risk_select*100) + "%",
-    line = dict(width = 1.5, dash = 'solid', color = "crimson"),
+    line = dict(width = 1.5, dash = 'solid', color = "navy"),
     ))
 
-fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="crimson")
+fig.add_vline(x=date_select, line_width=1.5, line_dash="solid", line_color="navy")
 
     #Price candlesticks plots
 fig.add_trace(go.Candlestick(
