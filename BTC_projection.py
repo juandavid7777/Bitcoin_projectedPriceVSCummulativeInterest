@@ -61,6 +61,7 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
+strl.write("---------------------------------------------------------------------------------------------------------------")
 strl.write("Forecasted price:", risk_adj_price)
 
 #5.Plots figures
