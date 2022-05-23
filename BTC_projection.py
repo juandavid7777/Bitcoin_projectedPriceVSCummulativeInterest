@@ -36,17 +36,17 @@ coin_name = "BTC"
 #3. User inputs
 
     #Risk input
-risk_select = strl.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.01)
-strl.write("Risk selected: ", risk_select*100, '%')
+risk_select = strl.sidebar.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.01)
+strl.sidebar.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
-date_select = strl.slider(
+date_select = strl.sidebar.slider(
      "When do you forecast the price?",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
      value = datetime(2022, 5, 5),
      format="YYYY-MM-DD")
-strl.write("Date Analysis:", date_select)
+strl.sidebar.write("Date Analysis:", date_select)
 
 
 #4.Data analysis
