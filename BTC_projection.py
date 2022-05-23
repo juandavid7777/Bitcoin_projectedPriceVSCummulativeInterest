@@ -169,7 +169,6 @@ fig.update_layout(
 
 fig.update_xaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
-
-
+fig.update_layout(hovermode="x")
 
 strl.plotly_chart(fig)
