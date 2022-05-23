@@ -48,6 +48,7 @@ date_select = strl.slider(
      format="YYYY-MM-DD")
 strl.write("Date Analysis:", date_select)
 
+
 #4.Data analysis
     #Data resulting from analysis
 B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
@@ -60,6 +61,7 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
+strl.write("Forecasted price:", risk_adj_price)
 
 #5.Plots figures
 fig = go.Figure()
@@ -166,5 +168,7 @@ fig.update_layout(
 
 fig.update_xaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
+
+
 
 strl.plotly_chart(fig)
