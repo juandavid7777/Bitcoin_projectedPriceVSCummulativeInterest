@@ -36,7 +36,7 @@ coin_name = "BTC"
 #3. User inputs
 
     #Risk input
-risk_select = strl.sidebar.slider('Select your the risk level', 0.0, 1.0, 0.5, step = 0.01)
+risk_select = strl.sidebar.slider('Select your the risk level', 0.1, 0.99, 0.5, step = 0.01)
 strl.sidebar.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
