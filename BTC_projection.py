@@ -43,6 +43,8 @@ r = requests.get(url)
 
 last_price = r.json()['bitcoin']['usd']
 
+strl.write("Current BTC price: ", last_price, 'USD')
+
 #3. User inputs in a side bar
 
     #Risk input
