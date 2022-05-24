@@ -48,11 +48,11 @@ strl.write("Current BTC price: ", last_price, 'USD/BTC')
 #3. User inputs in a side bar
 
     #Risk input
-risk_select = strl.sidebar.slider('Select your the risk level', 0.01, 0.99, 0.5, step = 0.01)
+risk_select = strl.sidebar.slider('Risk level', 0.01, 0.99, 0.5, step = 0.01)
 
     #Date input
 date_select = strl.sidebar.slider(
-     "When do you forecast the price?",
+     "Cash out date",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
      value = datetime(2022, 6, 5),
