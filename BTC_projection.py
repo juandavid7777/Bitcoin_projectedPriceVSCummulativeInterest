@@ -60,6 +60,10 @@ date_select = strl.sidebar.slider(
      format="YYYY-MM-DD")
 strl.sidebar.write("Date Analysis:", date_select)
 
+    #BTC input
+BTCin = strl.sidebar.slider('Select your the risk level', 0.01, 100.0, 1.0, step = 0.01)
+strl.sidebar.write("Bitcoin bought: ", BTCin, 'BTC')
+
 
 #4.Data analysis
     #Data resulting from analysis
@@ -75,7 +79,7 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
-strl.write("Forecasted price:", risk_adj_price)
+strl.write("Forecasted price:", risk_adj_price, "USD/BTC")
 strl.write("Buy and HODL gains:", (risk_adj_price-last_price)/last_price*100,"%")
 
 #5.Plots figures
