@@ -33,7 +33,7 @@ df = df.set_index("Date", drop = False)
 #2. Coin name
 coin_name = "BTC"
 
-#3. User inputs
+#3. User inputs in a side bar
 
     #Risk input
 risk_select = strl.sidebar.slider('Select your the risk level', 0.01, 0.99, 0.5, step = 0.01)
