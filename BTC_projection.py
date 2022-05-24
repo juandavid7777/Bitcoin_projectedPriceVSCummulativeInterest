@@ -61,8 +61,12 @@ date_select = strl.sidebar.slider(
 strl.sidebar.write("Date Analysis:", date_select)
 
     #BTC input
-BTCin = strl.sidebar.slider('Select your the risk level', 0.01, 100.0, 1.0, step = 0.01)
+BTCin = strl.sidebar.slider('BTC initial capital', 0.01, 20.0, 1.0, step = 0.01)
 strl.sidebar.write("Bitcoin bought: ", BTCin, 'BTC')
+
+    #BTC earning rate
+BTCr = strl.sidebar.slider('BTC earnings APY', 0.0, 0.25, 0.05, step = 0.005)
+strl.sidebar.write("Bitcoin APY: ", BTCr, '%')
 
 
 #4.Data analysis
