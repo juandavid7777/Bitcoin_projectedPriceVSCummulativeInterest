@@ -18,8 +18,6 @@ from datetime import datetime
 from datetime import date
 
 import requests
-#import json
-
 import webcolors
 
 #0 Functions
@@ -28,7 +26,6 @@ def css_to_rgb(color_name, opacity):
     r,g,b = webcolors.name_to_rgb(color_name)
     
     return "rgba(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
-
 
 #1. Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
@@ -42,8 +39,6 @@ base_url = "https://api.coingecko.com/api/v3"
 url = base_url + f"/simple/price?ids=bitcoin&vs_currencies=usd"
 r = requests.get(url)
 last_price = r.json()['bitcoin']['usd']
-
-strl.write("Current BTC price: ", last_price, 'USD/BTC')
 
 #3. User inputs in a side bar
 
@@ -79,30 +74,34 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
+    #Compounded analysis for daily equivalent
 today_date = date.today()
 n_days = (date_select_d - today_date).days
-
 BTCout = BTCin*(1+BTCr_daily)**n_days
 
-    #Forecast metrics
+    #Investment analysis
+HOLD_gains = (risk_adj_price-last_price)/last_price*100
+acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
+
+#5. Prints
+    #Current price
+strl.write("Current BTC price: ", last_price, 'USD/BTC')
 strl.write("---------------------------------------------------------------------------------------------------------------")
-    #Risk selected comment
+    #Selected inputs
 strl.write("Risk selected: ", risk_select*100, '%')
 strl.write("Date Analysis:", date_select_d)
 strl.write("Bitcoin invested: ", BTCin, 'BTC')
 strl.write("Bitcoin APY: ", BTCr*100, '%')
+strl.write("---------------------------------------------------------------------------------------------------------------")
+    #resulting outputs
 strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
-
 strl.write("---------------------------------------------------------------------------------------------------------------")
-    #Estimates % gains and formats
-HOLD_gains = (risk_adj_price-last_price)/last_price*100
-acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
-
+    #Investment analysis
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
 
-#5.Plots figures
+#6.Plots figures
 fig = go.Figure()
 
     #Prices for uncertainity bands
