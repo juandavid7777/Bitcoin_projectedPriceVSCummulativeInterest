@@ -55,7 +55,7 @@ date_select = strl.sidebar.slider(
      "When do you forecast the price?",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
-     value = datetime.now(),
+     value = datetime(2025, 6, 5),
      format="YYYY-MM-DD")
 
 date_select_d = date_select.date()
