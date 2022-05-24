@@ -61,7 +61,7 @@ date_select = strl.sidebar.slider(
 strl.sidebar.write("Date Analysis:", date_select)
 
     #BTC input
-BTCin = strl.sidebar.slider('BTC initial capital', 0.01, 20.0, 1.0, step = 0.01)
+BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
 strl.sidebar.write("Bitcoin bought: ", BTCin, 'BTC')
 
     #BTC earning rate
