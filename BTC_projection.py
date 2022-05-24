@@ -48,7 +48,6 @@ strl.write("Current BTC price: ", last_price, 'USD/BTC')
 
     #Risk input
 risk_select = strl.sidebar.slider('Select your the risk level', 0.01, 0.99, 0.5, step = 0.01)
-strl.sidebar.write("Risk selected: ", risk_select*100, '%')
 
     #Date input
 date_select = strl.sidebar.slider(
@@ -57,16 +56,12 @@ date_select = strl.sidebar.slider(
      max_value = datetime(2025, 5, 5),
      value = datetime(2022, 5, 5),
      format="YYYY-MM-DD")
-strl.sidebar.write("Date Analysis:", date_select)
 
     #BTC input
 BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
-strl.sidebar.write("Bitcoin bought: ", BTCin, 'BTC')
 
     #BTC earning rate
 BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/100
-strl.sidebar.write("Bitcoin APY: ", BTCr*100, '%')
-
 
 #4.Data analysis
     #Data resulting from analysis
@@ -82,11 +77,14 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
-
-    #Formats price value
+    #Risk selected comment
+strl.write("Risk selected: ", risk_select*100, '%')
+strl.write("Date Analysis:", date_select)
+strl.write("Bitcoin bought: ", BTCin, 'BTC')
+strl.write("Bitcoin APY: ", BTCr*100, '%')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
 
-    #Estiamtes % gains and formats
+    #Estimates % gains and formats
 HOLD_gains = (risk_adj_price-last_price)/last_price*100
 strl.write("Buy and HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 
