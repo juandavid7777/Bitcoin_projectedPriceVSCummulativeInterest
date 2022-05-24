@@ -83,11 +83,12 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
 
-    #Formats value
-risk_adj_price_form = float("{:.2f}".format(risk_adj_price))
+    #Formats price value
+strl.write("Forecasted price:", float("{:,.2f}".format(risk_adj_price)), "USD/BTC")
 
-strl.write("Forecasted price:", risk_adj_price_form, "USD/BTC")
-strl.write("Buy and HODL gains:", float("{:.2f}".format((risk_adj_price-last_price)/last_price*100)),"%")
+    #Estiamtes % gains and formats
+HOLD_gains = (risk_adj_price-last_price)/last_price*100
+strl.write("Buy and HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 
 #5.Plots figures
 fig = go.Figure()
