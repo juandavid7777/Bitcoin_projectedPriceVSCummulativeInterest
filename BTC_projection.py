@@ -43,7 +43,7 @@ r = requests.get(url)
 
 last_price = r.json()['bitcoin']['usd']
 
-strl.write("Current BTC price: ", last_price, 'USD')
+strl.write("Current BTC price: ", last_price, 'USD/BTC')
 
 #3. User inputs in a side bar
 
@@ -73,8 +73,10 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
+    #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
 strl.write("Forecasted price:", risk_adj_price)
+strl.write("Buy and HODL gains:", (risk_adj_price-last_price)/last_price*100,"%")
 
 #5.Plots figures
 fig = go.Figure()
