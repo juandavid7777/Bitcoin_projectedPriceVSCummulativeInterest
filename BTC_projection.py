@@ -15,7 +15,7 @@ import scipy.stats as st
 from scipy.stats import norm
 
 from datetime import datetime
-from dateitme import date
+from datetime import date
 
 import requests
 #import json
