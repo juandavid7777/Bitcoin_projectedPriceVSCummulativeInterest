@@ -58,6 +58,8 @@ date_select = strl.sidebar.slider(
      value = datetime(2022, 5, 5),
      format="YYYY-MM-DD")
 
+date_select = date_select.date()
+
     #BTC input
 BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
 
