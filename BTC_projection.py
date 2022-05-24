@@ -40,7 +40,6 @@ coin_name = "BTC"
 base_url = "https://api.coingecko.com/api/v3"
 url = base_url + f"/simple/price?ids=bitcoin&vs_currencies=usd"
 r = requests.get(url)
-
 last_price = r.json()['bitcoin']['usd']
 
 strl.write("Current BTC price: ", last_price, 'USD/BTC')
@@ -83,7 +82,11 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
-strl.write("Forecasted price:", risk_adj_price, "USD/BTC")
+
+    #Formats value
+risk_adj_price_form = float("{:.2f}".format(risk_adj_price))
+
+strl.write("Forecasted price:", risk_adj_price_form, "USD/BTC")
 strl.write("Buy and HODL gains:", (risk_adj_price-last_price)/last_price*100,"%")
 
 #5.Plots figures
