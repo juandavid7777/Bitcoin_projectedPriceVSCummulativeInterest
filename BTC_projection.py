@@ -94,6 +94,7 @@ strl.write("Bitcoin APY: ", BTCr*100, '%')
 strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
 
+strl.write("---------------------------------------------------------------------------------------------------------------")
     #Estimates % gains and formats
 HOLD_gains = (risk_adj_price-last_price)/last_price*100
 acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
