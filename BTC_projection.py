@@ -53,12 +53,12 @@ risk_select = strl.sidebar.slider('Select your the risk level', 0.01, 0.99, 0.5,
     #Date input
 date_select = strl.sidebar.slider(
      "When do you forecast the price?",
-     min_value = date(2011, 1, 1),
-     max_value = date(2025, 5, 5),
-     value = date(2022, 5, 5),
+     min_value = datetime(2011, 1, 1),
+     max_value = datetime(2025, 5, 5),
+     value = datetime(2022, 5, 5),
      format="YYYY-MM-DD")
 
-#date_select = date_select.date()
+date_select_d = date_select.date()
 
     #BTC input
 BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
@@ -79,10 +79,10 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
-#today_date = date.today()
-#n_days = date_select - today_date
+today_date = date.today()
+n_days = date_select_d - today_date
 
-#strl.write(n_days)
+strl.write(n_days)
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
