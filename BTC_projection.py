@@ -15,6 +15,7 @@ import scipy.stats as st
 from scipy.stats import norm
 
 from datetime import datetime
+from dateitme import date
 
 import requests
 #import json
@@ -62,6 +63,7 @@ BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step 
 
     #BTC earning rate
 BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/100
+BTCr_daily = (1+BTCr )**(1/365)-1
 
 #4.Data analysis
     #Data resulting from analysis
@@ -74,6 +76,11 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 
 z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
+
+today_date = date.today()
+n_days = date_select - today_date
+
+strl.write(n_days)
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
