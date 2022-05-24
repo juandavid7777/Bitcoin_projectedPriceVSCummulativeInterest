@@ -90,13 +90,17 @@ strl.write("--------------------------------------------------------------------
     #Risk selected comment
 strl.write("Risk selected: ", risk_select*100, '%')
 strl.write("Date Analysis:", date_select_d)
-strl.write("Bitcoin bought: ", BTCin, 'BTC')
+strl.write("Bitcoin invested: ", BTCin, 'BTC')
 strl.write("Bitcoin APY: ", BTCr*100, '%')
+strl.write("Bitcoin accumulated: ", BTCout, '%')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
 
     #Estimates % gains and formats
 HOLD_gains = (risk_adj_price-last_price)/last_price*100
-strl.write("Buy and HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
+acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
+
+strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
+strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
 
 #5.Plots figures
 fig = go.Figure()
