@@ -83,7 +83,6 @@ today_date = date.today()
 n_days = (date_select_d - today_date).days
 
 BTCout = BTCin*(1+BTCr_daily)**n_days
-strl.write(BTCout)
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
@@ -91,7 +90,7 @@ strl.write("--------------------------------------------------------------------
 strl.write("Risk selected: ", risk_select*100, '%')
 strl.write("Date Analysis:", date_select_d)
 strl.write("Bitcoin invested: ", BTCin, 'BTC')
-strl.write("Bitcoin APY: ", BTCr*100, '%')
+strl.write("Bitcoin APY: ", float("{:.0f}".format(BTCout)), 'BTC')
 strl.write("Bitcoin accumulated: ", BTCout, '%')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
 
