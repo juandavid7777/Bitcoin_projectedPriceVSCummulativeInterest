@@ -65,7 +65,7 @@ BTCin = strl.sidebar.slider('BTC initial capital', 0.01, 20.0, 1.0, step = 0.01)
 strl.sidebar.write("Bitcoin bought: ", BTCin, 'BTC')
 
     #BTC earning rate
-BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5, step = 0.5)/100
+BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/100
 strl.sidebar.write("Bitcoin APY: ", BTCr*100, '%')
 
 
