@@ -55,7 +55,7 @@ date_select = strl.sidebar.slider(
      "When do you forecast the price?",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2025, 5, 5),
-     value = datetime(2022, 5, 5),
+     value = datetime.now(),
      format="YYYY-MM-DD")
 
 date_select_d = date_select.date()
@@ -88,7 +88,7 @@ strl.write(n_days)
 strl.write("---------------------------------------------------------------------------------------------------------------")
     #Risk selected comment
 strl.write("Risk selected: ", risk_select*100, '%')
-strl.write("Date Analysis:", date_select)
+strl.write("Date Analysis:", date_select_d)
 strl.write("Bitcoin bought: ", BTCin, 'BTC')
 strl.write("Bitcoin APY: ", BTCr*100, '%')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
