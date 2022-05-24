@@ -53,12 +53,12 @@ risk_select = strl.sidebar.slider('Select your the risk level', 0.01, 0.99, 0.5,
     #Date input
 date_select = strl.sidebar.slider(
      "When do you forecast the price?",
-     min_value = datetime(2011, 1, 1),
-     max_value = datetime(2025, 5, 5),
-     value = datetime(2022, 5, 5),
+     min_value = date(2011, 1, 1),
+     max_value = date(2025, 5, 5),
+     value = date(2022, 5, 5),
      format="YYYY-MM-DD")
 
-#date_select = date_select.date()
+date_select = date_select.date()
 
     #BTC input
 BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
