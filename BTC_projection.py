@@ -82,7 +82,8 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
 today_date = date.today()
 n_days = (date_select_d - today_date).days
 
-strl.write(n_days)
+BTCout = BTCin*(1+BTCr_daily)**n_days
+strl.write(BTCout)
 
     #Forecast metrics
 strl.write("---------------------------------------------------------------------------------------------------------------")
