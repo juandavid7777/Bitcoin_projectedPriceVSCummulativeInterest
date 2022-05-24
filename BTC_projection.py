@@ -80,7 +80,7 @@ z_score = norm.ppf(risk_select)
 df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 + B3*(np.log(df["DSI"]))**3 + SE_reg*z_score)
 
 today_date = date.today()
-n_days = date_select_d - today_date
+n_days = (date_select_d - today_date).days
 
 strl.write(n_days)
 
