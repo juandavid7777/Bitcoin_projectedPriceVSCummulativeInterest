@@ -16,6 +16,9 @@ from scipy.stats import norm
 
 from datetime import datetime
 
+import requests
+import json
+
 import webcolors
 
 #0 Functions
@@ -30,8 +33,15 @@ def css_to_rgb(color_name, opacity):
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
 df = df.set_index("Date", drop = False)
 
-#2. Coin name
+#2. Coin name and latest price
 coin_name = "BTC"
+    
+    #API latest price
+base_url = "https://api.coingecko.com/api/v3"
+url = base_url + f"/simple/price?ids=bitcoin&vs_currencies=usd"
+r = requests.get(url)
+
+last_price = r.json()['bitcoin']['usd']
 
 #3. User inputs in a side bar
 

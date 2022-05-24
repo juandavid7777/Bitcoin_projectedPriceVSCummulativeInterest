@@ -8,3 +8,5 @@ plotly <=5.1.0
 datetime ==4.3
 scipy ==1.8.1
 webcolors ==1.11.1
+requests == 2.27.1
+json == 3.10.4
