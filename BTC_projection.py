@@ -87,7 +87,7 @@ strl.write("--------------------------------------------------------------------
 risk_adj_price_form = float("{:.2f}".format(risk_adj_price))
 
 strl.write("Forecasted price:", risk_adj_price_form, "USD/BTC")
-strl.write("Buy and HODL gains:", (risk_adj_price-last_price)/last_price*100,"%")
+strl.write("Buy and HODL gains:", float("{:.2f}".format((risk_adj_price-last_price)/last_price*100)),"%")
 
 #5.Plots figures
 fig = go.Figure()
