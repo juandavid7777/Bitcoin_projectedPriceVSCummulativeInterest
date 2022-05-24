@@ -91,7 +91,7 @@ strl.write("Risk selected: ", risk_select*100, '%')
 strl.write("Date Analysis:", date_select_d)
 strl.write("Bitcoin invested: ", BTCin, 'BTC')
 strl.write("Bitcoin APY: ", BTCr*100, '%')
-strl.write("Bitcoin accumulated: ", float("{:.0f}".format(BTCout)), 'BTC')
+strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
 
     #Estimates % gains and formats
