@@ -88,12 +88,12 @@ acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg")
+    strl.header("A cat")
+    strl.image("https://static.streamlit.io/examples/cat.jpg")
 
 with col2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg")
+    strl.header("A dog")
+    strl.image("https://static.streamlit.io/examples/dog.jpg")
 
     #Current price
 strl.write("Current BTC price: ", last_price, 'USD/BTC')
