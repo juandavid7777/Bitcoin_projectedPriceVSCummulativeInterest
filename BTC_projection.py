@@ -85,7 +85,7 @@ acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 
 #5. Prints
 
-col1, col2 = st.columns(2)
+col1, col2 = strl.columns(2)
 
 with col1:
     strl.header("A cat")
