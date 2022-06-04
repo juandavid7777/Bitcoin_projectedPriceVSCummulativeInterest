@@ -50,7 +50,7 @@ date_select = strl.sidebar.slider(
      "Cash out date",
      min_value = datetime(2011, 1, 1),
      max_value = datetime(2032, 5, 5),
-     value = datetime(2022, 12, 5),
+     value = datetime(2024, 5, 5),
      format="YYYY-MM-DD")
 
 date_select_d = date_select.date()
