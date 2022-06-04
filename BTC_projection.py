@@ -96,7 +96,7 @@ with col1:
     strl.write("Bitcoin APY: ", BTCr*100, '%')
 
 with col2:
-    strl.header("Buy today")
+    strl.header("Buy Bitcoin today")
     
     #Selected inputs
     strl.write("Bitcoin bought: ", BTCin, 'BTC')
@@ -104,7 +104,7 @@ with col2:
     strl.write("USD investment: ", BTCin*last_price, 'USD')
     
 with col3:
-    strl.header("Cash out on " +  str(date_select_d))
+    strl.header("Cash out on: " +  str(date_select_d))
 
     #resulting outputs
     strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
