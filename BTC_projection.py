@@ -90,7 +90,8 @@ strl.write("--------------------------------------------------------------------
     #Selected inputs
 strl.write("Risk selected: ", risk_select*100, '%')
 strl.write("Date Analysis:", date_select_d)
-strl.write("Bitcoin invested: ", BTCin, 'BTC')
+strl.write("Bitcoin invested today: ", BTCin, 'BTC')
+strl.write("USD invested today: ", BTCin*last_price, 'USD')
 strl.write("Bitcoin APY: ", BTCr*100, '%')
 strl.write("---------------------------------------------------------------------------------------------------------------")
     #resulting outputs
