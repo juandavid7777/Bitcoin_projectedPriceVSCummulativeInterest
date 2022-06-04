@@ -77,6 +77,7 @@ df["line"] = np.exp(B0 + B1*(np.log(df["DSI"]))**1 + B2*(np.log(df["DSI"]))**2 +
     #Compounded analysis for daily equivalent
 today_date = date.today()
 n_days = (date_select_d - today_date).days
+n_years = n_days/365
 BTCout = BTCin*(1+BTCr_daily)**n_days
 
     #Investment analysis
@@ -117,6 +118,8 @@ strl.write("--------------------------------------------------------------------
 strl.header("Investment Analysis")
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
+strl.write("HODL Yearly APY:", float("{:.2f}".format(HOLD_gains/n_years)),"%")
+strl.write("Acc + HODL Yearly APY:", float("{:.2f}".format(acc_HOLD_gains/n_years)),"%")
 
 #6.Plots figures
 fig = go.Figure()
