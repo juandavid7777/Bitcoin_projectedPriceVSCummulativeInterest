@@ -125,6 +125,11 @@ df_sum = pd.DataFrame(data = data, index = params)
 strl.table(df_sum)
 
 #6.Plots figures
+
+    #fitler graph
+DSI_filter = DSI_select + 90
+df = df[df["DSI"] < DSI_filter]
+
 fig = go.Figure()
 
     #Prices for uncertainity bands
