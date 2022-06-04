@@ -102,7 +102,6 @@ with col2:
     #Selected inputs
     strl.write("Bitcoin bought: ", BTCin, 'BTC')
     strl.write("Present BTC price: ", last_price, 'USD/BTC')
-    strl.write("Investment present value: ", BTCin*last_price, 'USD')
     
 with col3:
     strl.header("Cash out on: " +  str(date_select_d))
@@ -110,27 +109,20 @@ with col3:
     #resulting outputs
     strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
     strl.write("Future BTC price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
-    strl.write("Investment future value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
-
    
     #Investment analysis
 strl.write("---------------------------------------------------------------------------------------------------------------")
 strl.header("Investment Analysis")
 
-params = ["BTC accumulated","BTC value (USD)","Total gains (%)","Yearly ROI (%)"]
-hold_strat = [BTCin,BTCin*risk_adj_price,HOLD_gains,HOLD_gains/n_years]
-earn_strat = [BTCout,BTCout*risk_adj_price,acc_HOLD_gains,acc_HOLD_gains/n_years]
+    #Summary table creation
+params = ["Investment (USD)" ,"BTC accumulated","BTC value (USD)","Total gains (%)","Yearly ROI (%)"]
+hold_strat = [BTCin*last_price,BTCin,BTCin*risk_adj_price,HOLD_gains,HOLD_gains/n_years]
+earn_strat = [BTCin*last_price,BTCout,BTCout*risk_adj_price,acc_HOLD_gains,acc_HOLD_gains/n_years]
 
 data = {"HODL":hold_strat, "HODL + earn":earn_strat }
-
 df_sum = pd.DataFrame(data = data, index = params)
 
 strl.table(df_sum)
-
-# strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
-# strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
-# strl.write("HODL Yearly APY:", float("{:.2f}".format(HOLD_gains/n_years)),"%")
-# strl.write("Acc + HODL Yearly APY:", float("{:.2f}".format(acc_HOLD_gains/n_years)),"%")
 
 #6.Plots figures
 fig = go.Figure()
