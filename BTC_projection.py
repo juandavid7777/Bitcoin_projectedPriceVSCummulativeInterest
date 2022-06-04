@@ -127,7 +127,7 @@ strl.table(df_sum)
 #6.Plots figures
 
     #fitler graph
-DSI_filter = DSI_select + 90
+DSI_filter = DSI_select + 365
 df = df[df["DSI"] < DSI_filter]
 
 fig = go.Figure()
