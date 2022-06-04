@@ -90,11 +90,13 @@ strl.write("Current BTC price: ", last_price, 'USD/BTC')
 
     #Creates double column
 col1, col2 = strl.columns(2)
+
 with col1:
     strl.header("Buy today")
+    
     #Selected inputs
     strl.write("Risk selected: ", risk_select*100, '%')
-        strl.write("Bitcoin invested today: ", BTCin, 'BTC')
+    strl.write("Bitcoin invested today: ", BTCin, 'BTC')
     strl.write("USD invested today: ", BTCin*last_price, 'USD')
     strl.write("Bitcoin APY: ", BTCr*100, '%')
     
