@@ -85,31 +85,29 @@ acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 
 #5. Prints
 
-col1, col2 = strl.columns(2)
-
-with col1:
-    strl.header("A cat")
-    strl.image("https://static.streamlit.io/examples/cat.jpg")
-
-with col2:
-    strl.header("A dog")
-    strl.image("https://static.streamlit.io/examples/dog.jpg")
-
     #Current price
 strl.write("Current BTC price: ", last_price, 'USD/BTC')
-strl.write("---------------------------------------------------------------------------------------------------------------")
+
+    #Creates double column
+col1, col2 = strl.columns(2)
+with col1:
+    strl.header("Buy today")
     #Selected inputs
-strl.write("Risk selected: ", risk_select*100, '%')
-strl.write("Date Analysis:", date_select_d)
-strl.write("Bitcoin invested today: ", BTCin, 'BTC')
-strl.write("USD invested today: ", BTCin*last_price, 'USD')
-strl.write("Bitcoin APY: ", BTCr*100, '%')
-strl.write("---------------------------------------------------------------------------------------------------------------")
+    strl.write("Risk selected: ", risk_select*100, '%')
+    strl.write("Date Analysis:", date_select_d)
+    strl.write("Bitcoin invested today: ", BTCin, 'BTC')
+    strl.write("USD invested today: ", BTCin*last_price, 'USD')
+    strl.write("Bitcoin APY: ", BTCr*100, '%')
+    
+with col2:
+    strl.header("Cash out on " , date_select_d)
+
     #resulting outputs
-strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
-strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
-strl.write("Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
-strl.write("---------------------------------------------------------------------------------------------------------------")
+    strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
+    strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
+    strl.write("Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
+    strl.write("---------------------------------------------------------------------------------------------------------------")
+    
     #Investment analysis
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
