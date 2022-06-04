@@ -118,8 +118,8 @@ strl.write("--------------------------------------------------------------------
 strl.header("Investment Analysis")
 
 params = ["BTC accumulated","BTC value (USD)","Total gains (%)","Yearly ROI (%)"]
-hold_strat = [BTCin,BTCin*risk_adj_price,HOLD_gains,float("{:.2f}".format(HOLD_gains/n_years))+"%"]
-earn_strat = [BTCout,BTCout*risk_adj_price,acc_HOLD_gains,float("{:.2f}".format(acc_HOLD_gains/n_years))+"%"]
+hold_strat = [BTCin,BTCin*risk_adj_price,HOLD_gains,HOLD_gains/n_years]
+earn_strat = [BTCout,BTCout*risk_adj_price,acc_HOLD_gains,acc_HOLD_gains/n_years]
 
 data = {"HODL":hold_strat, "HODL + earn":earn_strat }
 
