@@ -85,28 +85,31 @@ acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 
 #5. Prints
 
-    #Current price
-strl.write("Current BTC price: ", last_price, 'USD/BTC')
-
-    #Creates double column
-col1, col2 = strl.columns(2)
+    #Creates triple column
+col1, col2, col3 = strl.columns(3)
 
 with col1:
+    strl.header("Risk taken")
+
+    #Model assumptions
+    strl.write("Risk selected: ", risk_select*100, '%')
+    strl.write("Bitcoin APY: ", BTCr*100, '%')
+
+with col2:
     strl.header("Buy today")
     
     #Selected inputs
-    strl.write("Risk selected: ", risk_select*100, '%')
-    strl.write("Bitcoin invested today: ", BTCin, 'BTC')
-    strl.write("USD invested today: ", BTCin*last_price, 'USD')
-    strl.write("Bitcoin APY: ", BTCr*100, '%')
+    strl.write("Bitcoin bought: ", BTCin, 'BTC')
+    strl.write("Current BTC price: ", last_price, 'USD/BTC')
+    strl.write("USD investment: ", BTCin*last_price, 'USD')
     
-with col2:
+with col3:
     strl.header("Cash out on " +  str(date_select_d))
 
     #resulting outputs
     strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
-    strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
-    strl.write("Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
+    strl.write("Forecasted BTC price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
+    strl.write("USD Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
 
    
     #Investment analysis
