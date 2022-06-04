@@ -49,8 +49,8 @@ risk_select = strl.sidebar.slider('Risk level', 0.01, 0.99, 0.5, step = 0.01)
 date_select = strl.sidebar.slider(
      "Cash out date",
      min_value = datetime(2011, 1, 1),
-     max_value = datetime(2025, 5, 5),
-     value = datetime(2022, 6, 5),
+     max_value = datetime(2032, 5, 5),
+     value = datetime(2022, 12, 5),
      format="YYYY-MM-DD")
 
 date_select_d = date_select.date()
@@ -97,6 +97,7 @@ strl.write("--------------------------------------------------------------------
     #resulting outputs
 strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
 strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
+strl.write("Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
 strl.write("---------------------------------------------------------------------------------------------------------------")
     #Investment analysis
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
