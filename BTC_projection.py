@@ -114,6 +114,7 @@ with col3:
    
     #Investment analysis
 strl.write("---------------------------------------------------------------------------------------------------------------")
+strl.header("Investment Analysis")
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
 
