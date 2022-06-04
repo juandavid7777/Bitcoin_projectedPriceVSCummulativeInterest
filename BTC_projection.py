@@ -115,7 +115,7 @@ strl.write("--------------------------------------------------------------------
 strl.header("Investment Analysis")
 
     #Summary table creation
-params = ["Investment (USD)" ,"BTC accumulated","BTC value (USD)","Total gains (%)","Yearly ROI (%)"]
+params = ["Present investment value (USD)" ,"BTC accumulated","Future investment value (USD)","Total gains (%)","Yearly ROI (%)"]
 hold_strat = [BTCin*last_price,BTCin,BTCin*risk_adj_price,HOLD_gains,HOLD_gains/n_years]
 earn_strat = [BTCin*last_price,BTCout,BTCout*risk_adj_price,acc_HOLD_gains,acc_HOLD_gains/n_years]
 
