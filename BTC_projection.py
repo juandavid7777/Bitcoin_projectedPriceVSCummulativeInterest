@@ -116,10 +116,21 @@ with col3:
     #Investment analysis
 strl.write("---------------------------------------------------------------------------------------------------------------")
 strl.header("Investment Analysis")
-strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
-strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
-strl.write("HODL Yearly APY:", float("{:.2f}".format(HOLD_gains/n_years)),"%")
-strl.write("Acc + HODL Yearly APY:", float("{:.2f}".format(acc_HOLD_gains/n_years)),"%")
+
+params = ["BTC accumulated","BTC value (USD)","Total gains (%)","Yearly ROI (%)"]
+hold_strat = [BTCin,BTCin*risk_adj_price,HOLD_gains,float("{:.2f}".format(HOLD_gains/n_years))+"%"]
+earn_strat = [BTCout,BTCout*risk_adj_price,acc_HOLD_gains,float("{:.2f}".format(acc_HOLD_gains/n_years))+"%"]
+
+data = {"HODL":hold_strat, "HODL + earn":earn_strat }
+
+df_sum = pd.DataFrame(data = data, index = params)
+
+strl.table(df_sum)
+
+# strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
+# strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
+# strl.write("HODL Yearly APY:", float("{:.2f}".format(HOLD_gains/n_years)),"%")
+# strl.write("Acc + HODL Yearly APY:", float("{:.2f}".format(acc_HOLD_gains/n_years)),"%")
 
 #6.Plots figures
 fig = go.Figure()
