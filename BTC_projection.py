@@ -94,8 +94,7 @@ with col1:
     strl.header("Buy today")
     #Selected inputs
     strl.write("Risk selected: ", risk_select*100, '%')
-    #strl.write("Date Analysis:", date_select_d)
-    strl.write("Bitcoin invested today: ", BTCin, 'BTC')
+        strl.write("Bitcoin invested today: ", BTCin, 'BTC')
     strl.write("USD invested today: ", BTCin*last_price, 'USD')
     strl.write("Bitcoin APY: ", BTCr*100, '%')
     
@@ -106,9 +105,10 @@ with col2:
     strl.write("Bitcoin accumulated: ", float("{:.2f}".format(BTCout)), 'BTC')
     strl.write("Forecasted price:", float("{:.0f}".format(risk_adj_price)), "USD/BTC")
     strl.write("Investment value: ", float("{:.2f}".format(BTCout*risk_adj_price)), 'USD')
-    strl.write("---------------------------------------------------------------------------------------------------------------")
-    
+
+   
     #Investment analysis
+strl.write("---------------------------------------------------------------------------------------------------------------")
 strl.write("HODL gains:", float("{:.2f}".format(HOLD_gains)),"%")
 strl.write("Accumulate + HODL gains:", float("{:.2f}".format(acc_HOLD_gains)),"%")
 
