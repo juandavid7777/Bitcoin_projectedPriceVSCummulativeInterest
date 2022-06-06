@@ -238,3 +238,8 @@ fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 fig.update_layout(hovermode="x")
 
 strl.plotly_chart(fig)
+
+
+# 7. Footer
+strl.write("------------------------------------------------------")
+strl.markdown("Assuming Bitcoin continues to be adopted over time this chart can be used as a price prediction tool where there is potential for there to be resistance on the upper boundary and support on the lower boundary. The price levels of those boundaries can be seen by hovering over them. Because the curves can be calculated on a forward-looking basis, it is possible to forecast where the price of Bitcoin may move towards in the future.")
