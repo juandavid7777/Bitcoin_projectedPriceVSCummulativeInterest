@@ -85,6 +85,8 @@ HOLD_gains = (risk_adj_price-last_price)/last_price*100
 acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 
 #5. Prints
+    #Sets layout
+strl.set_page_config(layout="wide")
 
     #Image
 strl.image("bitcoin.jpg")
