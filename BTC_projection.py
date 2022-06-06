@@ -85,6 +85,9 @@ HOLD_gains = (risk_adj_price-last_price)/last_price*100
 acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 
 #5. Prints
+    #Title
+strl.title("Bitcoin logarithmic investment projections")
+
 
     #Creates triple column
 col1, col2, col3 = strl.columns(3)
@@ -242,6 +245,6 @@ strl.plotly_chart(fig)
 
 # 7. Footer
 strl.write("------------------------------------------------------")
-strl.write("Bitcoin Price Prediction Using This Tool")
+strl.write("Bitcoin Price Prediction: Using This Tool")
 strl.caption("<small> Assuming Bitcoin continues to be adopted over time this chart can be used as a price prediction tool where there is potential for there to be resistance on the upper boundary and support on the lower boundary. These levels are estimated according to the logarithmic price deviations over all BTC's historic price, which can be seen by hovering over the graph, and can be understood as the price deviation uncertainity from the long term growth trend. As a hint, the best buying points happened below the 20% risk level and peaks have always occurred above the 90% level. Because the curves can be calculated on a forward-looking basis, it is possible to forecast where the price of Bitcoin may move towards in the future.", unsafe_allow_html=True)
-strl.caption("Inspired by this article from Harold Christopher Burger: Bitcoin's natural long-term power corridor of growth [link](https://medium.com/quantodian-publications/bitcoins-natural-long-term-power-law-corridor-of-growth-649d0e9b3c94)")
+strl.caption("Inspired by Cole Garner and @quantadelic and the article from Harold Christopher Burger @hcburguer: Bitcoin's natural long-term power corridor of growth [link](https://medium.com/quantodian-publications/bitcoins-natural-long-term-power-law-corridor-of-growth-649d0e9b3c94)")
