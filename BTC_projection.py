@@ -42,6 +42,9 @@ last_price = r.json()['bitcoin']['usd']
 
 #3. User inputs in a side bar
 
+    #Image gears
+strl.sidebar.image("gears.png")
+
     #Risk input
 risk_select = strl.sidebar.slider('Risk level', 0.01, 0.99, 0.5, step = 0.01)
 
