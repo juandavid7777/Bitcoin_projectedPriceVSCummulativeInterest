@@ -92,7 +92,7 @@ acc_HOLD_gains = (risk_adj_price*BTCout-last_price*BTCin)/(last_price*BTCin)*100
 strl.image("bitcoin.jpg")
 
     #Title
-strl.title("Bitcoin logarithmic investment projections")
+strl.markdown('<p style="color:Green">Bitcoin logarithmic investment projections</p>')
 
 
     #Creates triple column
