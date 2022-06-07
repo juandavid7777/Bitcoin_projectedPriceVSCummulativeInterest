@@ -109,7 +109,7 @@ with col1:
     #Model assumptions
     strl.write("Risk selected: ", risk_select*100, '%')
     strl.write("Bitcoin earnings/year: ", BTCr*100, '%')
-    strl.write("Current risk: ", float("{:.2f}".format(current_percent*100)), '%')
+    strl.write("Today's risk: ", float("{:.2f}".format(current_percent*100)), '%')
 
 with col2:
     strl.header("Buy Bitcoin today")
