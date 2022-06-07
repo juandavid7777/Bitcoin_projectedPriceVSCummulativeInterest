@@ -61,11 +61,17 @@ BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/1
 BTCr_daily = (1+BTCr )**(1/365)-1
 
 #4.Data analysis
+
     #Data resulting from analysis
 B0, B1, B2, B3, SE_reg = [-3.358503319577917, 0.22504250770989914, -0.12935087625772632, 0.03602841985203026, 0.7339134037730446]
 
     #Estimates points
 DSI_select = df.loc[date_select]["DSI"]
+
+    #fitler max data
+DSI_filter = DSI_select + 365
+df = df[df["DSI"] < DSI_filter]
+
 mean_price =  np.exp(B0 + B1*(np.log(DSI_select))**1 + B2*(np.log(DSI_select))**2 + B3*(np.log(DSI_select))**3)
 risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 
@@ -134,10 +140,6 @@ df_sum = pd.DataFrame(data = data, index = params)
 strl.table(df_sum)
 
 #6.Plots figures
-
-    #fitler graph
-DSI_filter = DSI_select + 365
-df = df[df["DSI"] < DSI_filter]
 
 fig = go.Figure()
 
@@ -247,7 +249,6 @@ fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 fig.update_layout(hovermode="x")
 
 strl.plotly_chart(fig)
-
 
 # 7. Footer
 strl.write("------------------------------------------------------")
