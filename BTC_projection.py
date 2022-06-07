@@ -21,13 +21,7 @@ import requests
 import webcolors
 
 #0 Functions
-from functions import test1
-
-    #Color function
-def css_to_rgb(color_name, opacity):
-    r,g,b = webcolors.name_to_rgb(color_name)
-    
-    return "rgba(" + str(r) + "," + str(g) + "," + str(b) + "," + str(opacity)+")"
+from functions import css_to_rgb
 
 #1. Downloads data
 df = pd.read_csv("https://raw.githubusercontent.com/juandavid7777/Bitcoin_projectedPriceVSCummulativeInterest/main/BTC_price_cummulative.csv", parse_dates = ["Date"])
@@ -100,7 +94,6 @@ strl.image("bitcoin.jpg")
 
     #Title
 strl.markdown('<b style="color:darkgoldenrod ; font-size: 44px">Bitcoin logarithmic investment projections</b>', unsafe_allow_html=True)
-strl.write(test1())
 
     #Creates triple column
 col1, col2, col3 = strl.columns(3)
