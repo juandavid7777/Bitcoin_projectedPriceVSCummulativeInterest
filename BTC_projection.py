@@ -76,7 +76,7 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 
     #Current risk
 price = np.log(last_price)
-mean = np.log(df["close"].iloc[df["close"].last_valid_index()])
+mean = np.log(df["close"].loc[df["close"].last_valid_index()])
 current_percent = norm.cdf(price, mean, SE_reg)*100    
 
 z_score = norm.ppf(risk_select)
