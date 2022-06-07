@@ -46,7 +46,7 @@ last_price = r.json()['bitcoin']['usd']
 strl.sidebar.image("gears.png")
 
     #Risk input
-risk_select = strl.sidebar.slider('Risk level', 0.01, 0.99, 0.5, step = 0.01)
+risk_select = strl.sidebar.slider('Risk level', 0.01, 0.99, 0.5, step = 0.05)
 
     #Date input
 date_select = strl.sidebar.slider(
@@ -59,7 +59,7 @@ date_select = strl.sidebar.slider(
 date_select_d = date_select.date()
 
     #BTC input
-BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 0.5)
+BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 1)
 
     #BTC earning rate
 BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/100
