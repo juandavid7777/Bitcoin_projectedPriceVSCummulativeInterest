@@ -59,7 +59,7 @@ date_select = strl.sidebar.slider(
 date_select_d = date_select.date()
 
     #BTC input
-BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 1)
+BTCin = strl.sidebar.slider('BTC initial capital (BTC)', 0.01, 50.0, 10.0, step = 1.0)
 
     #BTC earning rate
 BTCr = strl.sidebar.slider('BTC earnings APY (%)', 0.0, 25.0, 5.0, step = 0.5)/100
