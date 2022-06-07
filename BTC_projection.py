@@ -18,7 +18,6 @@ from datetime import datetime
 from datetime import date
 
 import requests
-import webcolors
 
 #0 Functions
 from functions import css_to_rgb
