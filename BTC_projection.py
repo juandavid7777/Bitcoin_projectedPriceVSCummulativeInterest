@@ -76,7 +76,7 @@ risk_adj_price = np.exp(norm.ppf(risk_select, np.log(mean_price), SE_reg))
 
     #Current risk
 price = np.log(last_price)
-mean = np.log(df["close"].loc[df["close"].last_valid_index()])
+mean = np.log(df["trace_0"].loc[df["close"].last_valid_index()])
 current_percent = norm.cdf(price, mean, SE_reg)*100    
 
 z_score = norm.ppf(risk_select)
@@ -109,7 +109,7 @@ with col1:
     #Model assumptions
     strl.write("Risk selected: ", risk_select*100, '%')
     strl.write("Bitcoin earnings/year: ", BTCr*100, '%')
-    strl.write("Bitcoin earnings/year: ", current_percent*100, '%')
+    strl.write("Current risk: ", current_percent*100, '%')
 
 with col2:
     strl.header("Buy Bitcoin today")
