@@ -21,6 +21,8 @@ import requests
 import webcolors
 
 #0 Functions
+from functions import test1
+
     #Color function
 def css_to_rgb(color_name, opacity):
     r,g,b = webcolors.name_to_rgb(color_name)
@@ -98,7 +100,7 @@ strl.image("bitcoin.jpg")
 
     #Title
 strl.markdown('<b style="color:darkgoldenrod ; font-size: 44px">Bitcoin logarithmic investment projections</b>', unsafe_allow_html=True)
-
+strl.write(test1())
 
     #Creates triple column
 col1, col2, col3 = strl.columns(3)
