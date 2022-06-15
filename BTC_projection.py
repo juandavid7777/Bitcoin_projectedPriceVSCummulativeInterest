@@ -143,10 +143,10 @@ strl.table(df_sum)
 
 fig = go.Figure()
 
-risks = [0.999, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.001]
+risks = ["99.90%", "90.00%", "80.00%", "70.00%", "60.00%", "50.00%", "40.00%", "30.00%", "20.00%", "10.00%", "0.10%"]
 
-for risk in risks:
-    risk_name = str(risk*100) + "%"
+for risk_name in risks:
+    
 
     strl.write(risk_name)
 
