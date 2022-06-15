@@ -148,6 +148,8 @@ risks = [0.999, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.001]
 for risk in risks:
     risk_name = str(risk*100) + "%"
 
+    strl.write(risk_name)
+
         #Prices for uncertainity bands
     fig.add_trace(go.Scatter(
         x=df['Date'],
