@@ -146,7 +146,6 @@ fig = go.Figure()
 risks = [0.999, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.001]
 
 for risk in risks:
-    risk_select = risk
     risk_name = str(risk*100) + "%"
 
         #Prices for uncertainity bands
@@ -154,7 +153,7 @@ for risk in risks:
         x=df['Date'],
         y=df[risk_name],
         mode = 'lines',
-        name = '99.9%',
+        name = risk_name,
         line = dict(width = 0.2, dash = 'dash', color = "black"),
         ))
 
