@@ -143,74 +143,20 @@ strl.table(df_sum)
 
 fig = go.Figure()
 
-    #Prices for uncertainity bands
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_3"],
-    mode = 'lines',
-    name = '99.9%',
-    line = dict(width = 0.2, dash = 'dash', color = "red"),
-    ))
+risks = [0.999, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.001]
 
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_2"],
-    mode = 'lines',
-    name = '97.8%',
-    line = dict(width = 0.2, dash = 'dash', color = "red"),
-    fill='tonexty',
-    fillcolor= css_to_rgb("tomato", 0.2)  #red
-    ))
+for risk in risks:
+    risk_select = risk
+    risk_name = str(risk*100) + "%"
 
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_1"],
-    mode = 'lines',
-    name = '84.2%',
-    line = dict(width = 0.2, dash = 'dash', color = "yellow"),\
-    fill='tonexty',
-    fillcolor=css_to_rgb("salmon", 0.2)  #red
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_0"],
-    mode = 'lines',
-    name = '50.0%',
-    line = dict(width = 0.2, dash = 'dash', color = "yellow"),
-    fill='tonexty',
-    fillcolor=css_to_rgb("khaki", 0.2)  #yellow
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_-1"],
-    mode = 'lines',
-    name = '15.8%',
-    line = dict(width = 0.2, dash = 'dash', color = "yellow"),
-    fill='tonexty',
-    fillcolor=css_to_rgb("lemonchiffon", 0.2) #yellow
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_-2"],
-    mode = 'lines',
-    name = '2.2%',
-    line = dict(width = 0.2, dash = 'dash', color = "green"),
-    fill='tonexty',
-    fillcolor=css_to_rgb("palegreen", 0.2) #green
-    ))
-
-fig.add_trace(go.Scatter(
-    x=df['Date'],
-    y=df["trace_-3"],
-    mode = 'lines',
-    name = '0.1%',
-    line = dict(width = 0.2, dash = 'dash', color = "green"),
-    fill='tonexty',
-    fillcolor=css_to_rgb("lawngreen", 0.2)  #green
-    ))
+        #Prices for uncertainity bands
+    fig.add_trace(go.Scatter(
+        x=df['Date'],
+        y=df[risk_name],
+        mode = 'lines',
+        name = '99.9%',
+        line = dict(width = 0.2, dash = 'dash', color = "black"),
+        ))
 
 fig.add_trace(go.Scatter(
     x=df['Date'],
