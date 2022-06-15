@@ -146,10 +146,6 @@ fig = go.Figure()
 risks = ["99.90%", "90.00%", "80.00%", "70.00%", "60.00%", "50.00%", "40.00%", "30.00%", "20.00%", "10.00%", "0.10%"]
 
 for risk_name in risks:
-    
-
-    strl.write(risk_name)
-
         #Prices for uncertainity bands
     fig.add_trace(go.Scatter(
         x=df['Date'],
