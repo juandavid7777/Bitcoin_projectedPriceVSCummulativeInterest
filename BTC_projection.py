@@ -189,7 +189,7 @@ fig.update_layout(
     #Sets up grid and axis properties
 fig.update_xaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
 fig.update_yaxes(showgrid=True, gridwidth=0.1, gridcolor='dimgrey')
-fig.update_layout(hovermode="x")
+fig.update_layout(hovermode="x unified")
 
 strl.plotly_chart(fig)
 
